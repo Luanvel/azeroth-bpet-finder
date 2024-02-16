@@ -251,6 +251,7 @@ figure .image {
   border-radius: 2em;
   transition: border-radius 0.3s, transform 0.3s;
 }
+
 figure .image:hover {
   border-radius: 3em;
   transform: scale(1.1);
@@ -361,7 +362,7 @@ small {
 
 #contacte a img {
   width: 2em;
-  height: auto;
+  height: 2em;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -390,7 +391,7 @@ small {
   border-radius: 2em;
   margin-top: var(--spacer);
   margin-bottom: 2em;
-  max-width: 30.6%;
+  max-width: 30.98%;
   height: auto;
 }
 
