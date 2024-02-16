@@ -1,0 +1,151 @@
+<template id="template-type-filter">
+    <nav id="button-nav">
+        <ul class="nav-list">
+            <li class="nav-item"><button class="btn-type"><img src="images/Aquatic-icon.png"
+                        alt="aquatic button">Aquatic</button>
+            </li>
+            <li class="nav-item"><button class="btn-type"><img src="images/Beast-icon.png"
+                        alt="beast button">Beast</button>
+            </li>
+            <li class="nav-item"><button class="btn-type"><img src="images/Critter-icon.png"
+                        alt="critter button">Critter</button>
+            </li>
+            <li class="nav-item"><button class="btn-type"><img src="images/Dragonkin-icon.png"
+                        alt="dragonkin button">Dragonkin</button>
+            </li>
+            <li class="nav-item"><button class="btn-type"><img src="images/Elemental-icon.png"
+                        alt="elemental button">Elemental</button>
+            </li>
+            <li class="nav-item"><button class="btn-type"><img src="images/Flying-icon.png"
+                        alt="flying button">Flying</button></li>
+            <li class="nav-item"><button class="btn-type"><img src="images/Humanoid-icon.png"
+                        alt="humanoid button">Humanoid</button>
+            </li>
+            <li class="nav-item"><button class="btn-type"><img src="images/Magic-icon.png"
+                        alt="magic button">Magic</button>
+            </li>
+            <li class="nav-item"><button class="btn-type"><img src="images/Mechanical-icon.png"
+                        alt="mechanical button">Mechanical</button>
+            </li>
+            <li class="nav-item"><button class="btn-type"><img src="images/Undead-icon.png"
+                        alt="undead button">Undead</button>
+            </li>
+        </ul>
+    </nav>
+</template>
+
+<template id="template-header">
+    <header>
+        <h1>Azeroth Battle Pet Finder</h1>
+
+        <!-- NavBar-->
+        <nav class="nav-bar" aria-label="Main">
+            <ul>
+                <li><a href="index.html"><img class="logo" src="images/logo.png" alt="logo"></a><span>Pets by
+                        Type</span></li>
+                <li><a href="favorites.html"><img class="favorites" src="images/favorites.png"
+                            alt="favorites"></a><span>Local
+                        Favorites</span></li>
+            </ul>
+        </nav>
+    </header>
+</template>
+
+<template id="template-footer">
+    <footer>
+        <p>&copy; 2024 - Verónica Ruiz (LunavelArt)</p>
+        <small> All rights reserved. World of Warcraft and Blizzard Entertainment are trademarks or registered
+            trademarks of Blizzard Entertainment. All other trademarks are the property of their respective owners.
+        </small>
+        <ul id="contacte">
+            <li><a href="index.html"><img class="logo" src="images/logo.png" alt="logo"></a></li>
+            <li><a href="https://github.com/Luanvel/" target="_blank"><img src="images/github.svg" alt="LinkedIn"
+                        width="30"></a>
+            </li>
+            <li><a href="https://www.linkedin.com/in/veronicaruizab/" target="_blank"><img src="images/linkedin.svg"
+                        alt="LinkedIn" width="30"></a>
+            </li>
+            <li><a href="https://twitter.com/Lunavel_Art/" target="_blank"><img src="images/x-twitter.svg"
+                        alt="X-Twitter" width="30"></a>
+            </li>
+            <li><a href="mailto:veronica.ruizab@gmail.com"><img src="images/envelope-regular.svg" alt="Email"
+                        width="30"></a>
+            </li>
+        </ul>
+    </footer>
+</template>
+
+<template id="template-type-pet">
+    <figure class="figure">
+        <a class="page" href="">
+            <img class="image" src="">
+        </a>
+        <figcaption>
+            <i class="fa-solid fa-heart" style="color: #615c5c;"></i>
+            <img class="invo-icon" src=""><span class="name"></span>
+        </figcaption>
+
+    </figure>
+</template>
+
+<template id="template-pet">
+
+    <div class="card" id="pet-container">
+
+        <img id="card-image" src="">
+
+        <div class="card-body" id="name-type">
+            <div id="pet-name-section">
+                <img id="invo-pet-icon" src="">
+                <h3 id="pet-name">---Pet Name---</h3>
+            </div>
+            <div id="pet-type-section">
+                <img id="pet-type-icon" src="">
+                <h3 id="pet-type-text">---Pet type---</h3>
+            </div>
+            <ul id="horde-ali">
+                <li id="is_alliance_only">
+                    <img id="alliance-icon" src="" alt="alliance icon">
+                </li>
+                <li id="is_horde_only">
+                    <img id="horde-icon" src="" alt="horde icon">
+                </li>
+            </ul>
+        </div>
+
+        <div class="card-body">
+            <div id="pet-description">
+                <p id="description">---Pet Description---</p>
+            </div>
+        </div>
+
+        <div class="card-body" id="information">
+            <ul id="general-info">
+                <li> <span><strong>Is Capturable</strong></span><span id="is_capturable"></span>
+                </li>
+                <li>
+                    <span><strong>Is Tradable</strong></span>
+                    <span id="is_tradable"></span>
+                </li>
+                <li><span><strong>Source</strong></span><span id="source"></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="ability-container">
+        </div>
+
+    </div>
+
+</template>
+
+<template id="ability-template">
+    <div class="ability">
+        <ul class="ability-list">
+            <li><img class="ability-icon" src="" alt="ability-icon"></li>
+            <li class="ability-name">---Ability-Name---</li>
+            <li><span>Slot</span><span class="slot"></span></li>
+            <li><span>Required Level</span><span class="required_level"></span></li>
+        </ul>
+    </div>
+</template>
