@@ -32,7 +32,7 @@ async function setupPage() {
   let favoritePets = localStorage.getItem("favoritePets");
   favoritePets = JSON.parse(favoritePets);
 
-  if (favoritePets.length == 0) {
+  if (favoritePets.length == 0 || !favoritePets) {
     document.querySelector("#favorite_warning").style.display = "inline-block";
   } else {
     // Iterar sobre cada petId y cargar la mascota favorita
