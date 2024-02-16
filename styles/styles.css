@@ -589,8 +589,17 @@ small {
 /************************ FAVORITES ****************************/
 
 #favorite_warning {
-  margin: 10.38em;
+  margin: 10.53em;
   padding: 5em;
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  #favorite_warning {
+    margin: 0;
+    padding: 5em;
+    display: none;
+  }
 }
 
 .fa-solid {
@@ -600,8 +609,4 @@ small {
 
 .fa-solid:hover {
   cursor: pointer;
-}
-
-#favorite_warning {
-  display: none;
 }
