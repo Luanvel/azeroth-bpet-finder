@@ -579,10 +579,25 @@ small {
     align-items: center;
   }
 
-  #general-info li,
-  #horde-ali li {
+  #general-info li {
     flex-direction: column;
     align-items: center;
+  }
+
+  .ability-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #name-type {
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 1em;
+  }
+
+  #horde-ali {
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
   }
 }
 
