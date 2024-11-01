@@ -76,50 +76,50 @@ async function setupPage() {
   });
 }
 
-//Función para mostrar la pet y sus datos en el DOM
+// Función para mostrar la pet y sus datos en el DOM
 async function loadFavoritePet(petId) {
-  const api = `https://${region}.api.blizzard.com/data/wow/pet/${petId}?namespace=static-${region}&locale=en_US&access_token=${accessToken}`;
+  const api = `https://${region}.api.blizzard.com/data/wow/pet/${petId}?namespace=static-${region}&locale=en_US`;
 
-  //Hacemos fetch a la API
-  const response = await fetch(api);
+  // Hacemos fetch a la API con el token en los headers
+  const response = await fetch(api, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  });
   const data = await response.json();
 
-  //Conseguimos la id real que será necesaria más adelante
+  // Conseguimos la id real que será necesaria más adelante
   const realId = await getRealId(formatPetName(data.name), region, accessToken);
 
-  //Buscamos el documento templates.html
+  // Buscamos el documento templates.html
   const response2 = await fetch("templates.html");
 
-  //Si la respuesta es correcta, continuamos
+  // Si la respuesta es correcta, continuamos
   if (!response2.ok) {
     console.log("Error fetching templates");
     return null;
   }
 
-  //Creamos el template
+  // Creamos el template
   const templates = document.createElement("template");
   templates.innerHTML = await response2.text();
 
-  //Seleccionar donde se tendrá que colocar el clon del template
+  // Seleccionar donde se tendrá que colocar el clon del template
   const petList = document.getElementById("favorite_pets");
 
-  //Seleccionamos el template correspondiente y lo clonamos
-  const petTemplate =
-    templates.content.querySelector("#template-type-pet").content;
-  const clone = petTemplate.cloneNode(true); //Ponemos true para que se importen también los hijos de template, no solo template.
+  // Seleccionamos el template correspondiente y lo clonamos
+  const petTemplate = templates.content.querySelector("#template-type-pet").content;
+  const clone = petTemplate.cloneNode(true);
 
-  //Añadimos la información a los elementos clonados desde la API (accedemos a clone declarado anteriormente)
-  clone.querySelector(".image").src = await loadCreatureMedia(
-    realId,
-    region,
-    accessToken
-  ); //Accedemos a source para darle la dirección de la imagen obtenida de loadCreatureMedia
+  // Añadimos la información a los elementos clonados desde la API
+  clone.querySelector(".image").src = await loadCreatureMedia(realId, region, accessToken);
   document.querySelector("h1").textContent = `Your locally saved Favorite Pets`;
   clone.querySelector(".image").alt = `Image of pet ${data.name}`;
   clone.querySelector(".invo-icon").src = data.icon;
   clone.querySelector(".name").textContent = data.name;
   clone.querySelector(".page").href = "pet.html?id=" + petId;
 
-  //Agreguem al DOM
+  // Agregamos al DOM
   petList.appendChild(clone);
 }

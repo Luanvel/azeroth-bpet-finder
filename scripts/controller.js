@@ -41,21 +41,34 @@ export function formatPetName(petName) {
   return petName.toLowerCase().replace(" ", "-");
 }
 
-//Función para conseguir la Id de Criatura, no la id de BattlePet
+// Función para conseguir la Id de Criatura, no la id de BattlePet
 export async function getRealId(petName, region, accessToken) {
-  const api = `https://${region}.api.blizzard.com/data/wow/search/creature?namespace=static-${region}&name.en_US=${petName}&orderby=id&_page=1&access_token=${accessToken}`;
-  const response = await fetch(api);
+  const api = `https://${region}.api.blizzard.com/data/wow/search/creature?namespace=static-${region}&name.en_US=${petName}&orderby=id&_page=1`;
+  // Hacemos fetch a la API con el token en los headers
+  const response = await fetch(api, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  });
   const data = await response.json();
 
-  return data.results[0].data.creature_displays[0].id; //Retornamos la id de creatures (id Real, no la específica de BattlePets)
+  return data.results[0].data.creature_displays[0].id; // Retornamos la id de creatures (id Real, no la específica de BattlePets)
 }
 
-//Función para recuperar la imagen de la pet
+// Función para recuperar la imagen de la pet
 export async function loadCreatureMedia(realId, region, accessToken) {
-  const api = `https://${region}.api.blizzard.com/data/wow/media/creature-display/${realId}?namespace=static-${region}&locale=en_US&access_token=${accessToken}`;
-
-  const response = await fetch(api);
+  const api = `https://${region}.api.blizzard.com/data/wow/media/creature-display/${realId}?namespace=static-${region}&locale=en_US`;
+  
+  // Hacemos fetch a la API con el token en los headers
+  const response = await fetch(api, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  });
   const data = await response.json();
 
   return data.assets[0].value;
 }
+

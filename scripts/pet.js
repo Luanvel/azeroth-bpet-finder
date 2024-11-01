@@ -40,10 +40,16 @@ async function setupPage() {
 
 //Función para mostrar la pet y sus datos en el DOM
 async function loadPet(petId) {
-  const api = `https://${region}.api.blizzard.com/data/wow/pet/${petId}?namespace=static-${region}&locale=en_US&access_token=${accessToken}`;
+  const api = `https://${region}.api.blizzard.com/data/wow/pet/${petId}?namespace=static-${region}&locale=en_US`;
 
-  //Hacemos fetch a la API
-  const response = await fetch(api);
+  // Hacemos fetch a la API con el token en los headers
+  const response = await fetch(api, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  });
+
   const data = await response.json();
 
   //Conseguimos la id real que será necesaria más adelante
@@ -107,10 +113,18 @@ async function loadPet(petId) {
 }
 
 //Función para conseguir el icono de cada habilidad
+// Función para conseguir el icono de cada habilidad
 async function getAbilityIcon(abilityId) {
-  const api = `https://${region}.api.blizzard.com/data/wow/media/pet-ability/${abilityId}?namespace=static-${region}&locale=en_US&access_token=${accessToken}`;
+  const api = `https://${region}.api.blizzard.com/data/wow/media/pet-ability/${abilityId}?namespace=static-${region}&locale=en_US`;
 
-  const response = await fetch(api);
+  // Hacemos fetch a la API con el token en los headers
+  const response = await fetch(api, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  });
+
   const data = await response.json();
 
   return data.assets[0].value;
